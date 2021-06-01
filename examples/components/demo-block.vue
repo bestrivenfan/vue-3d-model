@@ -5,18 +5,25 @@
     </div>
     <div class="demo-block-code">
       <div class="demo-block-code-box">
-        <h3>Vue Component & Webpack</h3>
+        <h3>模型信息</h3>
         <div class="demo-block-code-box-content">
-          <pre>
-            <code ref="vueCode" class="html">{{ vueCode | code }}</code>
-          </pre>
+           <ul class="myspeUldemo">
+             <li>模型名称 : 阿丽塔手办模型</li>
+             <li>模型尺寸 : 10 * 10 * 15</li>
+             <li>模型材质 : FDM耗材</li>
+             <li>模型来源 : 创想云模型圈</li>
+             <li>模型评分 : ☆☆☆☆</li>
+             <li>模型打印难度 : ☆☆☆</li>
+             <li>模型定位 : 手办卖品</li>
+           </ul>
+           <button class="speFunbtn" type="submit"> 导入模型 </button>
         </div>
       </div>
       <div class="demo-block-code-box">
-        <h3>HTML & JS</h3>
+        <h3>模型数据</h3>
         <div class="demo-block-code-box-content">
           <pre>
-            <code ref="htmlCode" class="html">{{ htmlCode | code }}</code>
+            <!-- <code ref="htmlCode" class="html">{{ htmlCode | code }}</code> -->
           </pre>
         </div>
       </div>
@@ -26,7 +33,7 @@
 
 <script>
 import 'highlight.js/styles/github.css';
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 
 /* eslint-disable no-irregular-whitespace */
 
@@ -47,8 +54,8 @@ export default {
     },
   },
   mounted() {
-    hljs.highlightBlock(this.$refs.vueCode);
-    hljs.highlightBlock(this.$refs.htmlCode);
+    // hljs.highlightBlock(this.$refs.vueCode);
+    // hljs.highlightBlock(this.$refs.htmlCode);
   },
   data() {
     return {};
@@ -74,13 +81,13 @@ export default {
   height: 100%;
   float: left;
   position: relative;
+  padding-top: 2rem;
 }
 
 .demo-block .demo-block-code {
   width: 50%;
   height: 100%;
-  background: #f9fafc;
-  border-left: solid 1px #dfe2e7;
+  margin-top: 0.46rem;
   font-size: 13px;
   float: left;
 }
@@ -94,6 +101,10 @@ export default {
   height: 50%;
   position: relative;
   overflow: hidden;
+  padding-top: 0.8rem;
+  background: #182c4a;
+  margin-top: -0.1rem;
+  color:#fff;
 }
 
 .demo-block .demo-block-code-box::after {
@@ -115,7 +126,7 @@ export default {
   width: 100%;
   padding: 10px 20px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: lighter;
   position: absolute;
 }
 
@@ -126,6 +137,31 @@ export default {
   left: 20px;
   right: 20px;
   overflow: auto;
+}
+.demo-block .demo-block-code-box-content .speFunbtn {
+  white-space: nowrap;
+  cursor: pointer;
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.demo-block .demo-block-code-box-content .myspeUldemo{
+  padding: 15px 1rem;
+  /* color: #657180; */
+  cursor: pointer;
+}
+.demo-block .demo-block-code-box-content .myspeUldemo li{
+  padding: 6px 0px;
+  color: #657180;
 }
 
 .demo-block .hljs {

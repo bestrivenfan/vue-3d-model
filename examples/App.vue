@@ -1,55 +1,56 @@
 <template>
     <div class="examples">
         <div class="examples-header">
-            <a href="https://github.com/hujiulong/vue-3d-model" class="title">Vue3DModel</a>
-            <a href="https://github.com/hujiulong/vue-3d-model" class="github">View on GitHub</a>
+            <img width="25px" height="25px" src="../assets/crealityLogo.png" alt="" srcset="">
+            <a href="https://github.com/hujiulong/vue-3d-model" class="title">创想三维模型可视化组件</a>
+            <!-- <a href="https://github.com/hujiulong/vue-3d-model" class="github">View on GitHub</a> -->
         </div>
         <div class="examples-content">
             <ul class="examples-menu">
-                <li class="examples-menu-title">Examples</li>
+                <li class="examples-menu-title">模型交互示例</li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-basic">basic</router-link>
+                    <router-link to="demo-basic">基础模型交互</router-link>
                 </li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-rotate">rotate</router-link>
+                    <router-link to="demo-rotate">3D动画模型</router-link>
                 </li>
-                <li class="examples-menu-item">
-                    <router-link to="demo-controls">controls</router-link>
-                </li>
-                <li class="examples-menu-item">
+                <!-- <li class="examples-menu-item">
+                    <router-link to="demo-controls">基础模型可控优化</router-link>
+                </li> -->
+                <!-- <li class="examples-menu-item">
                     <router-link to="demo-background">background</router-link>
+                </li> -->
+                <li class="examples-menu-item">
+                    <router-link to="demo-snapshot">模型缩略图</router-link>
+                </li>
+                <!-- <li class="examples-menu-title">基础模型事件</li> -->
+                <!-- <li class="examples-menu-item">
+                    <router-link to="demo-event">鼠标移入事件</router-link>
+                </li> -->
+                <li class="examples-menu-title">支持的模型上传格式</li>
+                <!-- <li class="examples-menu-item">
+                    <router-link to="demo-json">JSON 模型 (.json)</router-link>
+                </li> -->
+                <li class="examples-menu-item">
+                    <router-link to="demo-obj">OBJ 模型 (.obj)</router-link>
                 </li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-snapshot">snapshot</router-link>
-                </li>
-                <li class="examples-menu-title">Events</li>
-                <li class="examples-menu-item">
-                    <router-link to="demo-event">mousemove</router-link>
-                </li>
-                <li class="examples-menu-title">Model Formats</li>
-                <li class="examples-menu-item">
-                    <router-link to="demo-json">JSON Model (.json)</router-link>
+                    <router-link to="demo-obj-mtl">OBJ + MTL 模型 </router-link>
                 </li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-obj">OBJ Model (.obj)</router-link>
+                    <router-link to="demo-fbx">FBX 模型 (.fbx)</router-link>
                 </li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-obj-mtl">OBJ + MTL (.obj + .mtl)</router-link>
+                    <router-link to="demo-stl">STL 模型 (.stl)</router-link>
                 </li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-fbx">FBX Model (.fbx)</router-link>
+                    <router-link to="demo-collada">Collada 模型 (.dae)</router-link>
                 </li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-stl">STL Model (.stl)</router-link>
+                    <router-link to="demo-ply">PLY 模型 (.ply)</router-link>
                 </li>
                 <li class="examples-menu-item">
-                    <router-link to="demo-collada">Collada Model (.dae)</router-link>
-                </li>
-                <li class="examples-menu-item">
-                    <router-link to="demo-ply">PLY Model (.ply)</router-link>
-                </li>
-                <li class="examples-menu-item">
-                    <router-link to="demo-gltf">glTF Model (.gltf)</router-link>
+                    <router-link to="demo-gltf">glTF 模型 (.gltf)</router-link>
                 </li>
             </ul>
             <div class="examples-pages">
@@ -58,9 +59,7 @@
         </div>
     </div>
 </template>
-
 <script>
-
 export default {
   name: 'app',
 };
@@ -72,22 +71,18 @@ export default {
     padding: 0;
     box-sizing: border-box;
 }
-
 ul, ol, li {
     list-style: none;
 }
-
 a {
     color: #657180;
     text-decoration: none;
 }
-
 html, body, .examples {
     width: 100%;
     height: 100%;
     color: #657180;
 }
-
 body {
     background: #eee;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -95,22 +90,22 @@ body {
                  SimSun, sans-serif;
     background: #fff;
 }
-
 .examples-header {
     position: absolute;
     top: 0;
     width: 100%;
-    background: #f3f6fb;
+    background-image: url('../assets/bg1.png');
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-    border-bottom: solid 1px #dfe2e7;
+    /* border-bottom: solid 1px #dfe2e7; */
     padding: 15px 15px 15px 30px;
     line-height: 20px;
 }
-
 .examples-header .title {
-    font-weight: bold;
     font-size: 18px;
+    color: #fff;
     display: inline-block;
+    vertical-align: 7px;
+    margin-left: 20px;
 }
 
 .examples-header .github {
@@ -131,8 +126,9 @@ body {
     float: left;
     width: 230px;
     height: 100%;
-    border-right: solid 1px #dfe2e7;
-    padding: 10px 30px;
+    padding: 15px 30px;
+    background: #182c4a;
+    color: aliceblue;
 }
 
 .examples-menu .examples-menu-item {
@@ -148,6 +144,7 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+    text-indent: 1rem;
 }
 
 .examples-menu .examples-menu-title {

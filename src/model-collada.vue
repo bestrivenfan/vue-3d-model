@@ -21,7 +21,7 @@ export default {
             type: 'DirectionalLight',
             position: { x: 1, y: 1, z: 1 },
             color: 0xffffff,
-            intensity: 0.8,
+            intensity: 1,
           },
         ];
       },

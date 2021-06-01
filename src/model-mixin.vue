@@ -109,9 +109,9 @@ export default {
     crossOrigin: {
       default: 'anonymous',
     },
-    requestHeader: {
-      default: {},
-    },
+    // requestHeader: {
+    //   default: {},
+    // },
     outputEncoding: {
       type: Number,
       default: LinearEncoding,
@@ -130,7 +130,11 @@ export default {
       object: null,
       raycaster: new Raycaster(),
       mouse: new Vector2(),
-      camera: new PerspectiveCamera(45, 1, 0.01, 100000),
+      // params1 :摄像机视锥体垂直视野角度，最小值为0，最大值为180，默认值为50
+      // params2 :表示摄像机视锥体长宽比，默认长宽比为1，即表示看到的是正方形，实际项目中使用的是屏幕的宽高比
+      // params3 :表示摄像机视锥体近端面，这个值默认为0.1
+      // params4 :far表示摄像机视锥体远端面，默认为2000，这个值可以是无限的，说的简单点就是我们视觉所能看到的最远距离。
+      camera: new PerspectiveCamera(45, 1, 0.1, 100000),
       scene: new Scene(),
       wrapper: new Object3D(),
       renderer: null,
@@ -430,13 +434,13 @@ export default {
       if (this.object) {
         this.wrapper.remove(this.object);
       }
-
-      this.loader.setRequestHeader(this.requestHeader);
+      // this.loader.setRequestHeader(this.requestHeader);
+      console.log('模型加载前地址是什么', this.src);
       this.loader.load(this.src, (...args) => {
         const object = this.getObject(...args);
 
         if (this.process) {
-          this.process(object);
+          // this.process(object);
         }
 
         this.addObject(object);

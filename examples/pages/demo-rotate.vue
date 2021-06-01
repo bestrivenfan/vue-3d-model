@@ -1,12 +1,13 @@
 <template>
   <demo-block :vue-code="code" :html-code="htmlCode">
     <template slot="preview">
-      <model-collada
-        ref="collada"
-        :rotation="rotation"
+      <!-- 支持各文件格式的标签,引入到Rotate里面即可实现动效 -->
+      <model-ply
+        :backgroundAlpha="0"
         @on-load="onLoad"
-        src="static/models/collada/elf/elf.dae"
-      ></model-collada>
+        :rotation="rotation"
+        src="static/models/ply/binary/minas-tirith-by-clavenmoo.ply"
+      ></model-ply>
       <div class="example-loading" v-show="loading"></div>
     </template>
   </demo-block>
@@ -14,7 +15,8 @@
 
 <script>
 import DemoBlock from '../components/demo-block.vue';
-import ModelCollada from '../../src/model-collada.vue';
+// import ModelCollada from '../../src/model-collada.vue';
+import ModelPly from '../../src/model-ply.vue';
 
 const code = `
 <template>
@@ -50,7 +52,6 @@ const code = `
     }
 <\/script>
 `;
-
 const htmlCode = `
 <body>
     <div id="app">
@@ -109,7 +110,7 @@ export default {
     },
   },
   components: {
-    ModelCollada,
+    ModelPly,
     DemoBlock,
   },
 };
