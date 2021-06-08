@@ -9,6 +9,7 @@ import DemoObjMtl from './demo-obj-mtl.vue';
 import DemoFbx from './demo-fbx.vue';
 import DemoGltf from './demo-gltf.vue';
 import DemoStl from './demo-stl.vue';
+import DemoStl2 from './demo-stl2.vue';
 import DemoCollada from './demo-collada.vue';
 // import DemoSea3d from './demo-sea3d'
 import DemoJson from './demo-json.vue';
@@ -25,6 +26,7 @@ const pages = [
   DemoObjMtl,
   DemoFbx,
   DemoStl,
+  DemoStl2,
   DemoCollada,
   DemoJson,
   DemoPly,

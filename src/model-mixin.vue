@@ -109,9 +109,6 @@ export default {
     crossOrigin: {
       default: 'anonymous',
     },
-    // requestHeader: {
-    //   default: {},
-    // },
     outputEncoding: {
       type: Number,
       default: LinearEncoding,
@@ -430,17 +427,18 @@ export default {
     },
     load() {
       if (!this.src) return;
-
+      // const query = JSON.stringify(this.src);
+      // query = window.encodeURIComponent(query);
       if (this.object) {
         this.wrapper.remove(this.object);
       }
       // this.loader.setRequestHeader(this.requestHeader);
-      console.log('模型加载前地址是什么', this.src);
+      // console.log('模型加载前地址是什么', query);
       this.loader.load(this.src, (...args) => {
         const object = this.getObject(...args);
 
         if (this.process) {
-          // this.process(object);
+          this.process(object);
         }
 
         this.addObject(object);

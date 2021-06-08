@@ -23,7 +23,7 @@ export default {
       loading: true,
       rotation: {
         x: 0,
-        y: Math.PI / 2,
+        y: 0,
         z: 0,
       },
     };

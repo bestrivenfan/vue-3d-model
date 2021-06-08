@@ -1,71 +1,31 @@
 <template>
   <div class="demo-block">
     <div class="demo-block-preview">
+       <h3 style="color:#fff;padding-left:1rem;font-size:14px">源模型 (STL) :  <span style="color: #657180;">{{beforeFile}}</span></h3>
       <slot name="preview"></slot>
     </div>
-    <div class="demo-block-code">
-      <div class="demo-block-code-box">
-        <h3>模型信息</h3>
-        <div class="demo-block-code-box-content">
-           <ul class="myspeUldemo">
-             <li>模型名称 : 阿丽塔手办模型</li>
-             <li>模型尺寸 : 10 * 10 * 15</li>
-             <li>模型材质 : FDM耗材</li>
-             <li>模型来源 : 创想云模型圈</li>
-             <li>模型评分 : ☆☆☆☆</li>
-             <li>模型打印难度 : ☆☆☆</li>
-             <li>模型定位 : 手办卖品</li>
-           </ul>
-           <button class="speFunbtn" type="submit"> 导入模型 </button>
-        </div>
-      </div>
-      <div class="demo-block-code-box">
-        <h3>模型数据</h3>
-        <div class="demo-block-code-box-content">
-          <pre>
-            <!-- <code ref="htmlCode" class="html">{{ htmlCode | code }}</code> -->
-          </pre>
-        </div>
-      </div>
+    <div class="demo-block-preview">
+      <h3 style="color:#fff;padding-left:1rem;font-size:14px">压缩后 (PLY) : <span style="color: #657180;">{{afterFile}}</span></h3>
+      <slot name="preview2"></slot>
     </div>
   </div>
 </template>
 
 <script>
-import 'highlight.js/styles/github.css';
-// import hljs from 'highlight.js';
-
-/* eslint-disable no-irregular-whitespace */
-
-const codeHandler = (code) => {
-  const scripts = `<script src="vue.js"><\/script>
-    <script src="vue-3d-model.min.js"><\/script>`;
-
-  return code.replace(/#scripts#/gi, scripts);
-};
-
+// import 'highlight.js/styles/github.css';
 export default {
   name: 'app',
   props: {
     vueCode: String,
-    htmlCode: {
-      type: String,
-      default: '// TODO',
-    },
-  },
-  mounted() {
-    // hljs.highlightBlock(this.$refs.vueCode);
-    // hljs.highlightBlock(this.$refs.htmlCode);
   },
   data() {
-    return {};
+    return {
+      beforeFile: '', // 压缩前的STL格式
+      afterFile: '', // 压缩后的PLY格式
+    };
   },
-  filters: {
-    code(val) {
-      return codeHandler(val);
-    },
+  mounted() {
   },
-  components: {},
 };
 </script>
 <style>
@@ -82,6 +42,10 @@ export default {
   float: left;
   position: relative;
   padding-top: 2rem;
+  background: #182c4a;
+  margin-top: 0.4rem;
+  /* border-left: 3px solid #657180; */
+  /* border-right: 3px solid #657180; */
 }
 
 .demo-block .demo-block-code {
@@ -101,10 +65,12 @@ export default {
   height: 50%;
   position: relative;
   overflow: hidden;
-  padding-top: 0.8rem;
   background: #182c4a;
   margin-top: -0.1rem;
-  color:#fff;
+  color: #fff;
+  /* border: 2px solid #657180; */
+  /* border-bottom: none; */
+  /* border-right: none; */
 }
 
 .demo-block .demo-block-code-box::after {
@@ -124,9 +90,9 @@ export default {
 
 .demo-block .demo-block-code-box h3 {
   width: 100%;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: lighter;
+  padding: 18px 20px;
+  font-size: 18.72px;
+  font-weight: bold;
   position: absolute;
 }
 
@@ -146,20 +112,21 @@ export default {
   border-color: #409eff;
   outline: none;
   margin: 0;
-  transition: .1s;
+  transition: 0.1s;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   padding: 12px 20px;
   font-size: 14px;
   border-radius: 4px;
+  margin-left: 1rem;
 }
-.demo-block .demo-block-code-box-content .myspeUldemo{
+.demo-block .demo-block-code-box-content .myspeUldemo {
   padding: 15px 1rem;
   /* color: #657180; */
   cursor: pointer;
 }
-.demo-block .demo-block-code-box-content .myspeUldemo li{
+.demo-block .demo-block-code-box-content .myspeUldemo li {
   padding: 6px 0px;
   color: #657180;
 }

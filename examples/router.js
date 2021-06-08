@@ -18,7 +18,7 @@ const routes = pages.map((page) => {
 
 routes.push({
   path: '*',
-  redirect: '/demo-basic',
+  redirect: '/demo-ply',
 });
 
 export default new Router({ routes });
